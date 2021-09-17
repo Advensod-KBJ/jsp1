@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JSP1 프로젝트[6]-회원 등록</title>
+<title>Day3[2] - db 회원 등록</title>
 <!-- 스타일 참고  -->
-<link rel="stylesheet" href="../css/member.css">
+<link rel="stylesheet" href="../css/member.css?v=3">
 <script>
 	function validCheck() {
 		const frm = document.frmReg;
@@ -38,7 +38,7 @@
 <body>
 	<div style="width: 70%; margin: auto;">
 		<h3>회원 등록</h3>
-		<form action="member_save.jsp" name="frmReg" method="post"
+		<form action="member_dbsave.jsp" name="frmReg" method="post"
 			onsubmit="return validCheck()">
 			<table style="width: 100%">
 				<tr>
@@ -72,6 +72,7 @@
 							<option value="광주">광주</option>
 							<option value="기타">기타</option>
 					</select> 
+					<!-- diabled="diabled"는 파라미터 값 전달에서 제외 -->
 					<span id="addr_id"><input type="text" name="addr_etc" disabled="disabled" 
 							placeholder="기타 지역을 입력하세요." >
 					</span></td>
@@ -104,10 +105,10 @@
 	<script type="text/javascript">
 	document.getElementById("addr_select").addEventListener("change",function(){
 		if(this.value=="기타"){
-//			document.getElementById("addr_id").style.display="inline-block";
+//			document.getElementById("addr_id").style.display="inline-block";	화면에 보임
 			document.frmReg.addr_etc.disabled=false;
 		}else {
-//			document.getElementById("addr_id").style.display="none";
+//			document.getElementById("addr_id").style.display="none";			화면에 안보임
 			document.frmReg.addr_etc.disabled=true;
 		}
 		
