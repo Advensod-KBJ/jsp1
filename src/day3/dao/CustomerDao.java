@@ -101,9 +101,7 @@ public class CustomerDao {
 		}
 
 	}
-
 		
-
 	public void insert(Customer cus) {
 		String sql = "INSERT INTO CUSTOMER(NAME, PASSWORD, EMAIL, ADDR, GENDER, AGE, HOBBY)" + " VALUES(?,?,?,?,?,?,?)";
 		Connection conn = MySQLConnectionUtil.connect();
@@ -133,5 +131,29 @@ public class CustomerDao {
 		}
 
 	}
+	
+	public void deleteOk(int idx) {
+		String sql = "DELETE FROM CUSTOMER WHERE IDX = ?";
+		Connection conn = MySQLConnectionUtil.connect();
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			
+			pstmt.execute();
+			conn.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("delete 오류 : " + e.getMessage());
+			try {
+				pstmt.close();
+			} catch (SQLException e1) {}
+			MySQLConnectionUtil.close(conn);
+
+		}
+
+	}
+	
 
 }

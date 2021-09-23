@@ -10,7 +10,7 @@
 	CustomerDao dao = CustomerDao.getInstance();
 	Customer cus = dao.selectOne(idx);
 	
-	//out.print(cus);   //테스트 후 지우세요.
 	request.setAttribute("cus", cus);
 	if (alert!=null) request.setAttribute("alert", "y");     
 	pageContext.forward("update_view.jsp");
+	%>
