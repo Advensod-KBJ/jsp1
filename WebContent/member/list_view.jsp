@@ -38,13 +38,14 @@ li {
 </style>
 </head>
 <body>
+
 	<h3>고객 리스트 WELCOME!!!</h3>
 	<%
 		List<Customer> list = (List<Customer>)request.getAttribute("list");		 
 		for (Customer cus : list) {
 	%>
 	<ul>
-		<li id="name"><%=cus.getName()%></li>
+		<li id="name"><a href="update.jsp?idx=<%=cus.getIdx()%>"><%=cus.getName()%></a>님</li>
 		<li id="email"><%=cus.getEmail()%></li>
 		<li><%=cus.getAge()%> 세(<%=(cus.getGender().equals("male") ? "남" : "여")%>)</li>
 		<li><%=cus.getAddr()%></li>

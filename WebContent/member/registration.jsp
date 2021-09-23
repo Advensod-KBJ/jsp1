@@ -12,8 +12,7 @@
 	String email = request.getParameter("email");
 	int age = Integer.parseInt(request.getParameter("age")); // Vo 객체에 저장할 떄 필요
 	String addr = request.getParameter("addr");
-	if (addr.equals("기타"))
-		addr = request.getParameter("addr_etc");
+	if (addr.equals("기타"))	addr = request.getParameter("addr_etc");
 
 	String gender = request.getParameter("gender");
 	String[] hobby = request.getParameterValues("hobby");
