@@ -17,7 +17,8 @@
 	<li id="name">${status.index }:<a href="update.jsp?idx=${cus.idx}">${cus.name}</a> 님</li>
 	<!-- cus는 Customer 타입 객체 idx,name,email...은 프로퍼티 getter 없으면 값을 가져오지 못하고 오류 -->
 	<li id="email">${cus.email }</li>
-	<li>${cus.age} 세 (${cus.gender})</li>
+	<li>${cus.age} 세 (${cus.gender eq 'male' ? '남성' : '여성'})</li>
+	<!-- EL 은 문자열 같은지 비요할때 eq 연산자 사용 -->
 	<li>${cus.addr}</li>
 	<li id="hobby">${cus.hobby}</li>
 </ul>

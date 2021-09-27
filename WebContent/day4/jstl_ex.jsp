@@ -30,5 +30,9 @@
 	<c:out value="${i}"/><br>
 	</c:forEach>
 	<a href="jstl_ex.jsp?cnt=20">param.cnt 테스트</a>
+	<h3>forTocken 태그</h3>
+	<c:forTokens items="sana,nana,나연,다현" delims="," var="user">
+	<c:out value="${user}"/><br>
+	</c:forTokens>
 	</body>
 </html>
